@@ -1,0 +1,268 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+/* SECTION */
+.infra-section {
+  padding: 40px 15px;
+  background: #f5f7fa;
+}
+
+/* -------- ROW 1 -------- */
+.infra-top {
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* TEXT CENTER */
+.infra-text {
+  text-align: center;
+  max-width: 500px;
+}
+
+.infra-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size:41px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(270deg, #007bff, #00c6ff, #6a11cb, #ff6a00);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+  
+
+.infra-text p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ICONS */
+.icon {
+  display: flex;
+  gap: 10px;
+}
+
+.icon a {
+  width: 45px;
+  height: 45px;
+  background: #2e266d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.icon .starC:hover{
+  background:#fbbc05;
+  transform: scale(1.1);
+
+}
+.icon .whatsC:hover {
+  transform: scale(1.1);
+  background-color:  #28a745;;
+}
+.icon .phoneC:hover {
+  transform: scale(1.1);
+background-color: rgb(0, 81, 255);
+}
+.icon .instaC:hover {
+  transform: scale(1.1);
+    background: linear-gradient(
+  45deg,
+  #feda75,
+  #fa7e1e,
+  #d62976,
+  #962fbf,
+  #4f5bd5
+);
+}
+.icon .instaC:hover {
+  transform: scale(1.1);
+    background: linear-gradient(
+  45deg,
+  #feda75,
+  #fa7e1e,
+  #d62976,
+  #962fbf,
+  #4f5bd5
+);
+}
+
+/* OPTIONAL ICON FLOAT ANIMATION */
+.icon a {
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* -------- ROW 2 & 3 (IMAGES) -------- */
+.infra-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 20px;
+}
+
+.infra-row img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.infra-row img:hover {
+  transform: scale(1.05);
+}
+.img-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.img-box img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.img-box:hover img {
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 10px;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.img-box:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h4 {
+    text-align: center;
+    align-items: center;
+    color: #f4f2ef;
+    font-weight: 700;
+  margin: 0;
+  font-size: 20px;
+}
+
+.overlay p {
+    text-align: center;
+  font-size: 13px;
+  margin: 3px 0 0;
+}
+/* -------- RESPONSIVE -------- */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .infra-row {
+    grid-template-columns: repeat(2, 1fr);
+    /* display:flex; */
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+  .infra-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .infra-row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .infra-row h4{
+    font-size: 16px;
+   margin-bottom: 2px;
+  }
+  .infra-row p{
+font-size: 12px;
+line-height: 1.5;
+letter-spacing: 0.5px;
+  }
+
+  .icon {
+    justify-content: center;
+  }
+
+  .infra-text h2 {
+    font-size: 22px;
+  }
+}
+
+/* iPhone Range (Approx 430px – 460px) */
+@media (max-width: 460px) and (min-width: 401px) {
+
+  .infra-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .infra-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .infra-row h4 {
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .infra-row p {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+  }
+
+  .icon {
+    justify-content: center;
+  }
+
+  .infra-text h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+}
+
+
+
+/* footer code */
+
+/* GLOBAL */

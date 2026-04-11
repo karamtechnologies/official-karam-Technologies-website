@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+
+
+  <!-- google font link -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&family=Orbitron:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <title>Karam Technologies</title>
+
+
+
+<!-- <h1 class="shine4">Luxury</h1> -->
+
+<style>
+.shine4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 55px;
+  background: linear-gradient(90deg, #d4af37, #fff5cc, #d4af37);
+  background-size: 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s infinite;
+}
+</style>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- contact form emailjs script code -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script src="js/script2.js" defer></script>
+  <style>
+    body {
+
+
+      font-family: 'Poppins', sans-serif;
+
+      background: #f2f2f3;
+      color: rgb(9, 0, 0);
+      width: 100%;
+      /* overflow-x: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+ <nav
+      class="navbar-custom d-flex align-items-center justify-content-between px-3 py-3"
+    >
+      <!-- BRAND -->
+      <h5 class="underline-heading ps-lg-4 ps-md-4 m-0" style="">
+        <span style="color: #00d4ff"><i>K</i></span
+        >aram <i>T</i>echnologies
+      </h5>
+
+      <!-- LEFT MENU -->
+      <div class="menu d-flex gap-5">
+        <a href="index.html" class="nav-link-custom">HOME</a>
+        <a href="about.html" class="nav-link-custom">ABOUT</a>
+        <a href="#services" class="nav-link-custom">SERVICES</a>
+        <a href="infra.html" class="nav-link-custom">OUR-INFRA</a>
+      </div>
+
+      <!-- RIGHT MENU -->
+      <div class="logo d-flex gap-4">
+        <a href="Projects.html" class="nav-link-custom">PROJECTS</a>
+        <a href="#connect" class="nav-link-custom">CONTACT</a>
+      </div>
+
+      <!-- HAMBURGER -->
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+ <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav-link-custom">HOME</a>
+    <a href="about.html" class="nav-link-custom">ABOUT</a>
+    <a href="#services" class="nav-link-custom">SERVICES</a>
+    <a href="infra.html" class="nav-link-custom">INFRA</a>
+    <a href="Projects.html" class="nav-link-custom">PROJECTS</a>
+    <a href="#connect" class="nav-link-custom">CONTACT</a>
+  </div>
+
+
+
+
+  <!-- why about section -->
+
+  <section class="why-section">
+
+    <div class="why-container">
+
+      <!-- LEFT IMAGE -->
+      <div class="why-image">
+        <img src="css/images/about2.jpg" class="" alt="team">
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="why-content">
+        <h2 style="
+  color:#0b1f3a;
+  text-shadow: 0 2px 4px rgba(255,255,255,0.3);"><span>Why </span><b>Karam Technologies</b></i></h2>
+
+        <ul style="  font-family: 'Poppins', sans-serif;">
+          <li>Doorstep service available</li>
+          <li>Free site visiting and suggestions</li>
+          <li>Passion-driven technical excellence</li>
+          <li>Advanced networking & CCTV solutions</li>
+          <li>Professional team & quality service</li>
+          <li>Secure and scalable infrastructure</li>
+          <li>Customer-focused approach</li>
+          <li>Quality Services in Affordable cost</li>
+        </ul>
+
+        <!-- 🔥 IMAGE INSTEAD OF BUTTON -->
+        <div class="cta-image">
+          <a href="#contact"><button type="button" class="btn btn-primary mx-2 btn-glow-primary"
+              style="font-weight: bold;">Get in
+              Touch</button></a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- founder section -->
+  <div class="container my-5 my-md-1">
+    <div class="row justify-content-center">
+
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm text-center"
+          style="font-family:'Segoe UI', sans-serif; border:1px solid #f0f0f0;">
+
+          <!-- Brand -->
+          <h2 class="fw-semibold mb-1" style="letter-spacing:0.5px;color:#0a192f;">
+            Karam Technologies
+          </h2>
+
+          <!-- Founder -->
+          <p class="mb-3" style="color:#6c757d; font-size:14px;">
+            Founder · <span style="color:#000; font-weight:500;">Ramalakshmi</span>
+          </p>
+
+          <!-- Description -->
+          <p class="mb-4" style="font-size:14px; line-height:1.7; color:#444;">
+            A visionary leader dedicated to delivering innovative technology solutions,
+            building trust through quality service, and driving modern infrastructure
+            with precision and excellence.
+          </p>
+
+          <!-- Divider -->
+          <div class="mx-auto mb-3" style="width:60px; height:2px; background:#0a192f;"></div>
+
+          <!-- Tagline -->
+          <p style="font-size:14px; color:#042961; margin:0;font-family: 'Orbitron', sans-serif; ">
+            Not Just Technology 🤝 Built for Customer Compatibility
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATS SECTION -->
+  <section class="stats">
+    <div class="stats-box">
+
+      <div class="stat blue">
+        <h3>10+</h3>
+        <p>Years</p>
+      </div>
+
+      <div class="stat green">
+        <h3>250+</h3>
+        <p>Projects</p>
+      </div>
+
+      <div class="stat purple">
+        <h3>100+</h3>
+        <p>Tursted Clients</p>
+      </div>
+
+      <div class="stat orange">
+        <h3>24/7</h3>
+        <p>Support</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- customer reviews -->
+  <section class="review-header" id="review">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="voice-icon pb-3">🎤</div>
+      <h2 class="review-title">
+        Client <span>Voices</span>
+      </h2>
+
+    </div>
+
+    <p class="review-tagline">
+      Real feedback from our valued customers.
+    </p>
+  </section>
+
+  <div class="slider pt-4">
+    <div class="slides" id="slides">
+
+      <!-- Slide 1 -->
+   <div class="slide">
+      
+      <div class="cardss">
+          <img src="css/images/boy2.png">
+          <h4>Arun</h4>
+          <audio controls src="css/images/audio3.mp3"></audio>
+          <p>Excellent computer repair service.</p>
+        </div>
+        <div class="cardss">
+          <img src="css/images/girl3.png" class="img-fluid w-100">
+          <h4>Ishu</h4>
+          <audio controls src="css/images/audiowifi.mp3"></audio>
+          <p>Quick and reliable support.</p>
+        </div>
+
+        
+
+        <div class="cardss">
+          <img src="css/images/girl2.png">
+          <h4>Afrin</h4>
+          <audio controls src="css/images/Audio2.mp3"></audio>
+          <p>All sofware Installation & professional service.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="cardss">
+          <img src="css/images/simg.avif">
+          <h4>Shri Yantra</h4>
+          <!-- 🔹 Google Review (replaces audio) -->
+          <div style="color:#fbbc05; font-size:25px; margin:5px 0;">
+            ★★★★★
+          </div>
+          <span style="font-size:12px; color:gray;">Google Review</span>
+          <p>Door step Delivery was helpful for me.</p>
+        </div>
+
+        <div class="cardss">
+          <img src="css/images/boy1.avif">
+          <h4>Akash</h4>
+          <div style="color:#fbbc05; font-size:25px; margin:5px 0;">
+            ★★★★★
+          </div>
+          <span style="font-size:12px; color:gray;">Google Review</span>
+          <p>Affordable and fast service.</p>
+        </div>
+
+        <div class="cardss">
+          <img src="css/images/afrin.avif">
+          <h4>Anisha</h4>
+          <div style="color:#fbbc05; font-size:25px; margin:5px 0;">
+            ★★★★★
+          </div>
+          <span style="font-size:12px; color:gray;">Google Review</span>
+          <p>I always use their services and recommend them to my friends.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="dots mb-4">
+      <span class="dot active" onclick="moveSlide(0)"></span>
+      <span class="dot" onclick="moveSlide(1)"></span>
+    </div>
+  </div>
+
+
+  <!-- fixed container right side -->
+  <div class="floating-icons">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/917871192190" target="_blank" class="icon whatsappe">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+917871192190" class="icon call">
+      <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Google Reviews -->
+    <a href="https://www.google.com/search?q=karam+technologies+reviews&rlz=1C1VIQF_enIN1134IN1134&oq=karam+technologies+reviews&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBBzM1NWowajmoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x3b041333bffc3e69:0x8c26ed7a198da84d,1,,,,"
+      target="_blank" class="review icon">
+      <i class="fas fa-star"></i>
+    </a>
+
+  </div>
+
+  <script>
+    let index = 0;
+
+    function moveSlide(i) {
+      index = i;
+      document.getElementById("slides").style.transform =
+        "translateX(" + (-i * 100) + "%)";
+
+      let dots = document.querySelectorAll(".dot");
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[i].classList.add("active");
+    }
+  </script>
+
+
+
+  <!-- contact full section -->
+
+  <!-- footer section -->
+
+  <section class="contact-section d-flex flex-column gap-4 justify-content-around" id="contact">
+    <!-- contact-container contact-section -->
+    <div class="d-flex flex-row gap-3 justify-content-around">
+      <!-- BRAND -->
+      <div class="brand">
+        <!-- <img src="css/images/edithand2.png" height="50" style=" border-radius: 50%;" /> -->
+
+        <h5 class="underline-heading ps-lg-4 ps-md-4">
+          <span style="color: #00d4ff"><i>K</i></span>aram <i>T</i>echnologies
+        </h5>
+        <div class="brand-Paragraph d-flex justify-content-center">
+          <p class="mt-3">
+            Empowering businesses with advanced IT infrastructure, secure
+            networks, and reliable technology solutions.
+          </p>
+        </div>
+
+        <div class="get-ready">
+          <p style="color: #00d4ff; font-weight: 600">Get Ready With Us</p>
+        </div>
+      </div>
+    <!-- divider for mobile -->
+<div class="divider-animate"></div>
+      <!-- resources -->
+      <div class="resources">
+        <h5 class="align-items-center underline-heading"><i>Resources</i></h5>
+        <ul class="p-0 mt-3">
+          <li><a href="infra.html">Infrastructure</a></li>
+          <li><a href="about.html#review">Reviews</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="#connect">Contact us</a></li>
+        </ul>
+      </div>
+
+      <!-- CONNECT -->
+      <section class="connect-section py-4" id="connect">
+        <div class="container text-center">
+          <h2 class="connect-title mb-3">Connect With Us</h2>
+
+          <div class="d-flex flex-column flex-md-row flex-wrap gap-3 justify-content-center">
+            <!-- Card -->
+            <div class="connect-card">
+              <div class="icon-box">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div style="font-size: small; display: inline-block">
+                <div>4/283/3 Thiruvalluvar Nagar</div>
+                <div>Narasinganallur, Tirunelveli.</div>
+              </div>
+              <!-- <p style="font-size: small;">4/283/3  Thiruvalluvar nagar, Narasinganallur, Tirunelveli - 627604</p> -->
+            </div>
+            <div class="connect-card">
+              <div class="icon-box">
+                <i class="fas fa-phone"></i>
+              </div>
+              <p>
+                <a href="tel:+917871192190" style="text-decoration: none; color: inherit">+91 7871192190</a>
+              </p>
+            </div>
+
+            <div class="connect-card">
+              <div class="icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <p>support@karamtechnologies.in</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="d-flex flex-wrap gap-3 align-items-stretch">
+      <!-- MAP -->
+      <div class="flex-item map-item">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8336209801364!2d77.6575883!3d8.707345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b041333bffc3e69%3A0x8c26ed7a198da84d!2sKaram%20Technologies!5e0!3m2!1sen!2sin!4v1774868407674!5m2!1sen!2sin"
+          width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- FORM -->
+      <div class="flex-item">
+        <section class="contact-form-section w-100">
+          <div class="form-container w-100">
+            <h5 class="contact-heading">
+              <span>G</span>et I<span>n T</span>ouch
+            </h5>
+
+            <form id="BottomForm" class="h-100 d-flex flex-column">
+              <div class="form-row">
+                <div class="field-box">
+                  <input type="text" id="b_name" name="name" placeholder="Your name" required />
+                  <div class="error-text"></div>
+                </div>
+
+                <div class="field-box">
+                  <input type="email" id="b_email" name="email" placeholder="youremail@gmail.com" required />
+                  <div class="error-text"></div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field-box">
+                  <input type="tel" id="b_phone" name="phone" placeholder="Phone number" />
+                  <div class="error-text"></div>
+                </div>
+
+                <div class="field-box">
+                  <input type="text" id="b_service" name="service" placeholder="Service type" />
+                  <div class="error-text"></div>
+                </div>
+              </div>
+
+              <div class="form-row full flex-grow-1">
+                <div class="field-box" style="width: 100%">
+                  <textarea id="b_message" name="message" placeholder="Your message"></textarea>
+                  <div class="error-text"></div>
+                </div>
+              </div>
+
+              <button type="submit" class="contact-button">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-bottom d-flex align-items-center">
+      <div>
+        <a href="https://wa.me/919645073739" class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <p class="center-text m-0 pt-2">
+        © 2026 Karam Technologies. All Rights Reserved.
+      </p>
+
+      <div class="footer-links pt-3">
+        <a href="Terms.html">
+          <p>Terms & Conditions</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
+
+
+
+
+
+
+</body>
+
+</html>
