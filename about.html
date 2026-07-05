@@ -413,53 +413,121 @@
       </div>
 
       <!-- FORM -->
-      <div class="flex-item">
-        <section class="contact-form-section w-100">
-          <div class="form-container w-100">
-            <h5 class="contact-heading">
-              <span>G</span>et I<span>n T</span>ouch
-            </h5>
+     
+<div class="flex-item">
 
-            <form id="BottomForm" class="h-100 d-flex flex-column">
-              <div class="form-row">
-                <div class="field-box">
-                  <input type="text" id="b_name" name="name" placeholder="Your name" required />
-                  <div class="error-text"></div>
-                </div>
+  <section class="contact-form-section w-100">
 
-                <div class="field-box">
-                  <input type="email" id="b_email" name="email" placeholder="youremail@gmail.com" required />
-                  <div class="error-text"></div>
-                </div>
-              </div>
+    <div class="form-container w-100">
 
-              <div class="form-row">
-                <div class="field-box">
-                  <input type="tel" id="b_phone" name="phone" placeholder="Phone number" />
-                  <div class="error-text"></div>
-                </div>
+      <h5 class="contact-heading">
+        <span>G</span>et I<span>n T</span>ouch
+      </h5>
 
-                <div class="field-box">
-                  <input type="text" id="b_service" name="service" placeholder="Service type" />
-                  <div class="error-text"></div>
-                </div>
-              </div>
+      <!-- ✅ FORM -->
+      <form
+        id="BottomForm"
+        method="POST"
+        class="h-100 d-flex flex-column"
+      >
 
-              <div class="form-row full flex-grow-1">
-                <div class="field-box" style="width: 100%">
-                  <textarea id="b_message" name="message" placeholder="Your message"></textarea>
-                  <div class="error-text"></div>
-                </div>
-              </div>
+        <!-- NAME + EMAIL -->
+        <div class="form-row">
 
-              <button type="submit" class="contact-button">
-                Send Message
-              </button>
-            </form>
+          <div class="field-box">
+
+            <input
+              type="text"
+              id="b_name"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+
+            <div class="error-text"></div>
+
           </div>
-        </section>
-      </div>
+
+          <div class="field-box">
+
+            <input
+              type="email"
+              id="b_email"
+              name="email"
+              placeholder="youremail@gmail.com"
+              required
+            />
+
+            <div class="error-text"></div>
+
+          </div>
+
+        </div>
+
+        <!-- PHONE + SERVICE -->
+        <div class="form-row">
+
+          <div class="field-box">
+
+            <input
+              type="tel"
+              id="b_phone"
+              name="phone"
+              placeholder="Phone number"
+            />
+
+            <div class="error-text"></div>
+
+          </div>
+
+          <div class="field-box">
+
+            <input
+              type="text"
+              id="b_service"
+              name="service"
+              placeholder="Service type"
+            />
+
+            <div class="error-text"></div>
+
+          </div>
+
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-row full flex-grow-1">
+
+          <div class="field-box" style="width: 100%">
+
+            <textarea
+              id="b_message"
+              name="message"
+              placeholder="Your message"
+            ></textarea>
+
+            <div class="error-text"></div>
+
+          </div>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button
+          type="submit"
+          class="contact-button"
+        >
+          Send Message
+        </button>
+
+      </form>
+
     </div>
+
+  </section>
+
+</div>
+  </div>
 
     <!-- FOOTER -->
     <div class="footer-bottom d-flex align-items-center">

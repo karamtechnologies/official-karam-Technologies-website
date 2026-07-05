@@ -1,145 +1,252 @@
-//  hamburger menu
- 
- function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("active");
-    }
-
-    // contact form sending to owner 
-
-(function () {
-  emailjs.init("a5JvKTd2AxXgb5p44");
-})();
 
 // ✅ Handle BOTH forms
 document.querySelectorAll("form").forEach((form) => {
 
-  // Skip if not your forms
-  if (!form.id || (form.id !== "contactForm" && form.id !== "BottomForm")) return;
+  // ✅ Skip other forms
+  if (
+    !form.id ||
+    (form.id !== "contactForm" && form.id !== "BottomForm")
+  ) return;
 
-  // Fields (SAFE selection inside form)
+  // ✅ Fields
   const fields = {
+
     name: {
       el: form.querySelector("[name='name']"),
       validate: (val) => val.trim().length >= 3,
       message: "Name must be at least 3 letters"
     },
+
     email: {
       el: form.querySelector("[name='email']"),
-      validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+      validate: (val) =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
       message: "Enter a valid email"
     },
+
     phone: {
       el: form.querySelector("[name='phone']"),
-      validate: (val) => val === "" || /^[6-9]\d{9}$/.test(val.replace(/\s+/g, "")),
+      validate: (val) =>
+        val === "" ||
+        /^[6-9]\d{9}$/.test(val.replace(/\s+/g, "")),
       message: "Enter valid Indian phone number"
     },
+
     service: {
       el: form.querySelector("[name='service']"),
-      validate: (val) => val !== "",
-      message: "Please select / enter service"
+      validate: (val) => val.trim() !== "",
+      message: "Please enter service"
     },
+
     message: {
       el: form.querySelector("[name='message']"),
       validate: (val) => val.trim().length >= 5,
       message: "Message must be at least 5 characters"
     }
+
   };
 
-  // Validate field
-  // function validateField(field) {
-  //   const value = field.el.value;
-  //   const errorDiv = field.el.parentElement.querySelector(".error-text");
+  // ✅ Validation Function
+  function validateField(field) {
 
-  //   if (field.validate(value)) {
-  //     field.el.classList.remove("input-error");
-  //     field.el.classList.add("input-success");
-  //     if (errorDiv) errorDiv.classList.remove("active");
-  //     return true;
-  //   } else {
-  //     field.el.classList.add("input-error");
-  //     field.el.classList.remove("input-success");
-  //     if (errorDiv) {
-  //       errorDiv.textContent = field.message;
-  //       errorDiv.classList.add("active");
-  //     }
-  //     return false;
-  //   }
-  // }
-function validateField(field) {
-  const value = field.el.value;
+    const value = field.el.value;
 
-  // ✅ Find or create error div dynamically
-  let errorDiv = field.el.nextElementSibling;
+    let errorDiv = field.el.nextElementSibling;
 
-  if (!errorDiv || !errorDiv.classList.contains("error-text")) {
-    errorDiv = document.createElement("div");
-    errorDiv.className = "error-text";
-    field.el.parentNode.insertBefore(errorDiv, field.el.nextSibling);
+    // Create error div dynamically
+    if (
+      !errorDiv ||
+      !errorDiv.classList.contains("error-text")
+    ) {
+
+      errorDiv = document.createElement("div");
+
+      errorDiv.className = "error-text";
+
+      field.el.parentNode.insertBefore(
+        errorDiv,
+        field.el.nextSibling
+      );
+
+    }
+
+    // ✅ VALID
+    if (field.validate(value)) {
+
+      field.el.classList.remove("input-error");
+
+      field.el.classList.add("input-success");
+
+      errorDiv.textContent = "";
+
+      errorDiv.classList.remove("active");
+
+      return true;
+
+    }
+
+    // ❌ INVALID
+    else {
+
+      field.el.classList.add("input-error");
+
+      field.el.classList.remove("input-success");
+
+      errorDiv.textContent = field.message;
+
+      errorDiv.classList.add("active");
+
+      return false;
+
+    }
+
   }
 
-  if (field.validate(value)) {
-    field.el.classList.remove("input-error");
-    field.el.classList.add("input-success");
-    errorDiv.textContent = "";
-    errorDiv.classList.remove("active");
-    return true;
-  } else {
-    field.el.classList.add("input-error");
-    field.el.classList.remove("input-success");
-    errorDiv.textContent = field.message;
-    errorDiv.classList.add("active");
-    return false;
-  }
-}
-  // Live validation
-  Object.values(fields).forEach(field => {
-    field.el.addEventListener("input", () => validateField(field));
+  // ✅ Live Validation
+  Object.values(fields).forEach((field) => {
+
+    if (field.el) {
+
+      field.el.addEventListener("input", () => {
+
+        validateField(field);
+
+      });
+
+    }
+
   });
 
-  // Submit
-  form.addEventListener("submit", function (e) {
+  // ✅ FORM SUBMIT
+  form.addEventListener("submit", async function (e) {
+
     e.preventDefault();
 
     let isValid = true;
 
-    Object.values(fields).forEach(field => {
-      if (!validateField(field)) isValid = false;
+    // ✅ Validate all fields
+    Object.values(fields).forEach((field) => {
+
+      if (!validateField(field)) {
+
+        isValid = false;
+
+      }
+
     });
 
-    if (!isValid) return;
+    // ❌ Stop if invalid
+    if (!isValid) {
 
-    // EmailJS
-    const parameters = {
-      from_name: fields.name.el.value.trim(),
-      email: fields.email.el.value.trim(),
-      phone: fields.phone.el.value.trim(),
-      service: fields.service.el.value.trim(),
-      message: fields.message.el.value.trim()
-    };
+      alert("❌ Please fill the form correctly!");
 
+      return;
+
+    }
+
+    // ✅ Button State
     const btn = form.querySelector("button");
+
+    const originalText = btn.innerText;
+
     btn.disabled = true;
+
     btn.innerText = "Sending...";
 
-    emailjs.send("service_lahyoel", "template_v0gm7p9", parameters)
-      .then(() => {
-        alert("✅ Message sent successfully! ");
-        alert("We'll reach out you within 24 hours, 🤝 Karam Technologies!");
+    // ✅ Form Data
+    const formData = {
+
+      name: fields.name.el.value.trim(),
+
+      email: fields.email.el.value.trim(),
+
+      phone: fields.phone.el.value.trim(),
+
+      service: fields.service.el.value.trim(),
+
+      message: fields.message.el.value.trim()
+
+    };
+
+    try {
+
+      // ✅ POST Request to Backend
+      const response = await fetch(
+        "http://localhost:5000/send-email",
+        {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify(formData)
+
+        }
+      );
+
+      const result = await response.json();
+
+      // ✅ SUCCESS
+      if (result.success) {
+
+        alert("✅ Message sent successfully!");
+
+        alert("We'll reach out within 24 hours 🤝");
 
         form.reset();
-        btn.disabled = false;
-        btn.innerText = "Send Message";
 
-        Object.values(fields).forEach(f => {
+        // Remove all validation styles
+        Object.values(fields).forEach((f) => {
+
           f.el.classList.remove("input-success");
+
+          f.el.classList.remove("input-error");
+
+          const errorDiv = f.el.nextElementSibling;
+
+          if (
+            errorDiv &&
+            errorDiv.classList.contains("error-text")
+          ) {
+
+            errorDiv.textContent = "";
+
+            errorDiv.classList.remove("active");
+
+          }
+
         });
-      })
-      .catch((error) => {
+
+      }
+
+      // ❌ FAILED
+      else {
+
         alert("❌ Failed to send message");
-        console.log(error);
-        btn.disabled = false;
-        btn.innerText = "Send Message";
-      });
+
+      }
+
+    }
+
+    // ❌ SERVER / NETWORK ERROR
+    catch (error) {
+
+      console.log(error);
+
+      alert("❌ Server error. Please try again later.");
+
+    }
+
+    // ✅ ALWAYS RUN
+    finally {
+
+      btn.disabled = false;
+
+      btn.innerText = originalText;
+
+    }
 
   });
 
