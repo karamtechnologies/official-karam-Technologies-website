@@ -31,12 +31,39 @@ app.post("/send-email", async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+
+      // Prevent Render timeout
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 15000,
+
     });
 
     // Verify SMTP Connection
     await transporter.verify();
 
     console.log("✅ Gmail SMTP Connected");
+
+
+    // =====================
+// Check SMTP Connection
+// =====================
+
+transporter.verify((error, success)=>{
+
+    if(error){
+
+        console.log("❌ SMTP Connection Failed");
+        console.log(error.message);
+
+    }
+    else{
+
+        console.log("✅ Gmail SMTP Ready");
+
+    }
+
+});
 
     // Send Mail
     const info = await transporter.sendMail({
