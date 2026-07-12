@@ -30,9 +30,9 @@ app.post("/send-email", async (req, res) => {
 
             auth: {
 
-                user: "shrirama678@gmail.com",
+                user: "supportkaram@gmail.com",
 
-                pass: "oivwugrsvvbhlcrk"
+                pass: "vuayhywxpirikjxh"
 
             }
 
@@ -46,11 +46,11 @@ app.post("/send-email", async (req, res) => {
         // Send Mail
         const info = await transporter.sendMail({
 
-            from: '"Website Contact Form" <shrirama678@gmail.com>',
+            from: '"Website Contact Form" <supportkaram@gmail.com>',
 
             replyTo: email,
 
-            to: "shrirama678@gmail.com",
+            to: "supportkaram@gmail.com",
 
             subject: `New Contact Form Submission - ${name}`,
 
