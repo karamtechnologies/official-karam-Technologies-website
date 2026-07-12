@@ -172,7 +172,7 @@ document.querySelectorAll("form").forEach((form) => {
 
       // ✅ POST Request to Backend
       const response = await fetch(
-        "http://localhost:5000/send-email",
+        "https://official-karam-technologies-website.onrender.com/send-email",
         {
 
           method: "POST",
