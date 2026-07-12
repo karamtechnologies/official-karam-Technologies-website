@@ -7,9 +7,7 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors({
-    origin: "https://your-netlify-site.netlify.app"
-}));
+app.use(cors());
 app.use(express.json());
 
 // Contact Form API
@@ -42,7 +40,7 @@ app.post("/send-email", async (req, res) => {
 
     // Send Mail
     const info = await transporter.sendMail({
-      from: '"Website Contact Form" <supportkaram@gmail.com>',
+      from: process.env.EMAIL_USER,
 
       replyTo: email,
 
