@@ -123,7 +123,7 @@ document.querySelectorAll("form").forEach((form) => {
     try {
       // POST Request execution to remote Render engine
       const response = await fetch(
-        "https://onrender.com",
+        "https://official-karam-technologies-website.onrender.com/send-email",
         {
           method: "POST",
           headers: {
