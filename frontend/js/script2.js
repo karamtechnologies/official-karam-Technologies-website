@@ -19,7 +19,7 @@ document.querySelectorAll("form").forEach((form) => {
   // Fields (SAFE selection inside form)
   const fields = {
     name: {
-      el: form.querySelector("[name='name']"),
+      el: form.querySelector("[name='username']"),
       validate: (val) => val.trim().length >= 3,
       message: "Name must be at least 3 letters"
     },
