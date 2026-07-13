@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Contact Form SMTP Endpoint Route Mapping
-app.post("https://official-karam-technologies-website.onrender.com/send-email", async (req, res) => {
+app.post("/send-email", async (req, res) => {
   console.log("=================================");
   console.log("📩 Request payload packet received");
   console.log(req.body);
