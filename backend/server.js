@@ -1,4 +1,4 @@
-// Force IPv4 connection before anything else
+// Force IPv4 DNS resolution
 const dns = require("dns");
 dns.setDefaultResultOrder("ipv4first");
 
@@ -48,39 +48,25 @@ app.post("/send-email", async (req, res) => {
   try {
 
 
-    // Gmail SMTP Configuration
+    // Gmail Transporter
     const transporter = nodemailer.createTransport({
 
-      host: "smtp.gmail.com",
-
-      port: 587,
-
-      secure: false, // STARTTLS
-
-      family: 4, // Force IPv4 ⭐
-
+      service: "gmail",
 
       auth: {
-
         user: process.env.EMAIL_USER,
-
         pass: process.env.EMAIL_PASS
-
       },
 
 
       tls: {
-
         rejectUnauthorized: false
-
       },
 
 
       connectionTimeout: 30000,
-
-      greetingTimeout: 15000,
-
-      socketTimeout: 15000
+      greetingTimeout: 30000,
+      socketTimeout: 30000
 
     });
 
@@ -91,31 +77,20 @@ app.post("/send-email", async (req, res) => {
 
       from: process.env.EMAIL_USER,
 
+      to: "supportkaram@gmail.com",
 
       replyTo: email,
 
-
-      to: "supportkaram@gmail.com",
-
-
       subject: `New Contact Form Submission - ${name}`,
 
-
       text: `
-
 Name    : ${name}
-
 Email   : ${email}
-
 Phone   : ${phone || "Not Provided"}
-
 Service : ${service || "Not Provided"}
 
-
 Message :
-
 ${message}
-
       `
 
     });
@@ -128,7 +103,7 @@ ${message}
 
 
 
-    return res.status(200).json({
+    res.status(200).json({
 
       success: true,
 
@@ -146,7 +121,8 @@ ${message}
     console.error(error);
 
 
-    return res.status(500).json({
+
+    res.status(500).json({
 
       success:false,
 
@@ -162,7 +138,7 @@ ${message}
 
 
 // Health Check
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
 
   res.send("Node Mail Server Running Successfully");
 
@@ -170,11 +146,11 @@ app.get("/", (req,res)=>{
 
 
 
-// Server Start
+// Start Server
 const PORT = process.env.PORT || 5000;
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
 
   console.log(`🚀 Server running on port ${PORT}`);
 
