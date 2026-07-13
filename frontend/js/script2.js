@@ -110,7 +110,7 @@ function validateField(field) {
 
     // EmailJS
     const parameters = {
-      from_name: fields.name.el.value.trim(),
+      username: fields.name.el.value.trim(),
       email: fields.email.el.value.trim(),
       phone: fields.phone.el.value.trim(),
       service: fields.service.el.value.trim(),
