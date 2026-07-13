@@ -1,4 +1,4 @@
-// Force IPv4 DNS resolution
+// Force IPv4 DNS resolution at the core network level
 const dns = require("dns");
 dns.setDefaultResultOrder("ipv4first");
 
@@ -10,11 +10,9 @@ require("dotenv").config();
 
 const app = express();
 
-
 // Middleware
 app.use(cors());
 app.use(express.json());
-
 
 // Contact Form API
 app.post("/send-email", async (req, res) => {
@@ -24,65 +22,44 @@ app.post("/send-email", async (req, res) => {
   console.log(req.body);
   console.log("=================================");
 
-
-  const {
-    name,
-    email,
-    phone,
-    service,
-    message
-  } = req.body;
-
+  const { name, email, phone, service, message } = req.body;
 
   // Validation
   if (!name || !email || !message) {
-
     return res.status(400).json({
       success: false,
       message: "Name, email and message are required"
     });
-
   }
 
-
   try {
-
-
-    // Gmail Transporter
+    // 🛠️ FIX: Explicitly configured to bypass IPv6 network issues on Render
     const transporter = nodemailer.createTransport({
-
-      service: "gmail",
-
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // Use true for port 465 SSL
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       },
-
-
       tls: {
         rejectUnauthorized: false
       },
-
-
+      // 🔥 CRITICAL: This explicitly forces Nodemailer to use IPv4 instead of IPv6
+      connectionOptions: {
+        family: 4
+      },
       connectionTimeout: 30000,
       greetingTimeout: 30000,
       socketTimeout: 30000
-
     });
-
-
 
     // Send Email
     const info = await transporter.sendMail({
-
       from: process.env.EMAIL_USER,
-
       to: "supportkaram@gmail.com",
-
       replyTo: email,
-
       subject: `New Contact Form Submission - ${name}`,
-
       text: `
 Name    : ${name}
 Email   : ${email}
@@ -92,66 +69,35 @@ Service : ${service || "Not Provided"}
 Message :
 ${message}
       `
-
     });
-
-
 
     console.log("✅ Email Sent Successfully");
-
     console.log("Message ID:", info.messageId);
 
-
-
     res.status(200).json({
-
       success: true,
-
       message: "Email sent successfully"
-
     });
-
-
 
   } catch (error) {
-
-
     console.error("❌ SMTP ERROR:");
-
     console.error(error);
 
-
-
     res.status(500).json({
-
-      success:false,
-
-      message:error.message
-
+      success: false,
+      message: error.message
     });
-
-
   }
-
 });
-
-
 
 // Health Check
 app.get("/", (req, res) => {
-
   res.send("Node Mail Server Running Successfully");
-
 });
-
-
 
 // Start Server
 const PORT = process.env.PORT || 5000;
 
-
 app.listen(PORT, () => {
-
   console.log(`🚀 Server running on port ${PORT}`);
-
 });
